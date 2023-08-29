@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+    <style>
+        ol li{
+            font: 18px Calibri;
+            background-color: #abc;
+            margin: 5px;
+            padding: 5px;
+        }
+        ol li:hover{
+            background-color: #cba;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <!-- Your task: <input v-model="newTask" @keyup="addTask"> -->
+
+        <!-- 使用 v-on 的修飾符(modifier): enter(按 enter 鍵才會呼叫 addTask) -->
+        Your task: <input v-model="newTask" @keyup.enter="addTask">
+
+        <ol>
+            <!-- <li v-for="task in tasks">{{task}}</li> -->
+
+            <!-- 加上刪除功能 -->
+            <li v-for="(task,index) in tasks" @click="removeTask(index)">{{task}}</li>
+        </ol>
+    </div>
+    
+    <script>
+        Vue.createApp({
+            data(){ 
+                return {                    
+                    tasks: [],
+                    newTask: '',
+                }
+            },
+            methods: { 
+                addTask(){
+                    this.tasks.push(this.newTask)
+                    this.newTask = ''
+                },
+                removeTask(index){
+                    this.tasks.splice(index, 1)
+                },
+            },
+        }).mount('#app')
+
+    </script>
+</body>
+</html>

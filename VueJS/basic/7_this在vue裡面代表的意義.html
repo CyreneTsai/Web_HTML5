@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <ul>
+            <!-- <li v-for="color in colors" v-on:click="showColor(color)">{{color}}</li> -->
+
+            <!-- v-on 的縮寫是: 「@」 -->
+            <li v-for="color in colors" @click="showColor(color)">{{color}}</li>
+        </ul>
+    </div>
+    
+    <script>
+        /* =====
+        // About this
+        .html <button id="theButton">click</button>
+        .js
+            let theButton = document.getElementById('theButton')
+            theButton.addEventListener('click',function(e){
+                console.log(e.target.nodeName);     // BUTTON
+                console.log(this.nodeName);         // BUTTON
+                console.log(e.type);                // click
+            })
+
+        ※ this 在 JavaScript 代表執行當下的外層物件，所以 this 在執行的時候才有意義。
+           至於 this 代表哪一個物件，跟它的情境 (context) 有關。 
+
+        1 
+            function action(){
+                console.log(this);
+            }
+            呼叫: action()
+            結果: window 物件
+        
+        2
+            const man = {
+                name: 'Peter',
+                action(){
+                    console.log(this)
+                },
+            }
+            呼叫: man.action()
+            結果: man 物件
+
+        3 改成箭頭函數
+            const man = {
+                name: 'Peter',
+                action: () => console.log(this),
+            }
+            呼叫: man.action()
+            結果: window 物件
+
+        4 IIFE(Immediately Invoked Function Expression)
+            // let sayHello = function(name){
+            //     console.log(`Hello, ${name}`)
+            // }
+            let sayHello = name => console.log(`Hello, ${name}`)
+
+            呼叫: sayHello('Peter')
+            結果: Hello, Peter
+
+            ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ 
+            let sayHello = function(name){
+                console.log(`Hello, ${name}`)
+            }('Peter')
+
+        5 Vue 的 this 代表 Vue 物件本身，所以在 Vue 裡面請用箭頭函數
+        ===== */
+        Vue.createApp({
+            data(){     // 變數放這裡
+                return {
+                    message: 'Hello',                    
+                    colors: ['red','orange','yellow','green','blue','indigo','violet'],                    
+                }
+            },
+            methods: {  // 函數大部分放這裡
+                showColor(theColor){
+                    // alert(`Hello, ${theColor}!`)
+                    // alert(`Hello, ${theColor.toUpperCase()}!`)
+
+                    // alert(`${this.message}, ${theColor.toUpperCase()}!`)
+                    alert(`${this.$data.message}, ${theColor.toUpperCase()}!`)
+
+                    this.action()
+                },
+                action(){
+                    alert(`Hi, color!`)
+                },
+            },
+        }).mount('#app')
+
+    </script>
+</body>
+</html>

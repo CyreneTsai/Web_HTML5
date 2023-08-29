@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+    <!-- 3 CSS 的寫法: linked -->
+    <!-- <link rel="stylesheet" href="XX.css"> -->
+
+    <!-- 2 CSS 的寫法: embedded -->
+    <!-- <style>
+        p{ color: green; }
+    </style> -->
+</head>
+<body>
+    <!-- 
+        綁定 style: 讓標籤賦予的 style 屬性由 Vue 決定
+    -->
+
+    <div id="app"> <!-- HTML DOM template-->
+        <!-- 1 CSS 的寫法: inline(標籤賦予 style 屬性) -->
+        <!-- <p style="color:red;font-size: 24px;text-decoration: underline;">Lorem ipsum dolor sit amet.</p> -->
+        
+        <button @click="enlarge">Enlarge</button>
+        <button @click="shrink">Shrink</button>
+
+        <p :style="changeSize">Lorem ipsum dolor sit amet.</p>
+    </div>
+    
+    <script>
+        Vue.createApp({
+            data(){ 
+                return {                    
+                    size: 16,
+                }
+            },
+            methods: {
+                enlarge(){
+                    this.size += 2
+                },
+                shrink(){
+                    if(this.size > 0){
+                        this.size -= 2
+                    }else{
+                        this.size = 0
+                    }
+                },
+            }, 
+            computed: {
+                changeSize(){
+                    return {
+                        color: 'maroon',
+                        textDecoration: 'underline',
+                        fontFamily: 'Calibri',
+                        fontSize: `${this.size}px`,
+                    }
+                },
+            },
+        }).mount('#app')
+
+    </script>
+</body>
+</html>

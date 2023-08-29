@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <!-- 陣列 -->
+        <ul>
+            <!-- <li v-for="color in colors">{{color}}</li> -->
+            <li v-for="(color,index) in colors">{{index}}: {{color}}</li>
+        </ul>
+        <hr>
+
+        <!-- 物件 -->
+        <ul>
+            <li v-for="(item,key) in man">{{key}}: {{item}}</li>
+        </ul>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data(){     // 變數放這裡
+                return {
+                    message: 'Hello',
+                    colors: ['red','orange','yellow','green','blue','indigo','violet'],
+                    man: {
+                        name: 'Peter',
+                        age: 40,
+                        gender: 'male',
+                        favoriateColor: ['black','gray','white'],
+                        car: {
+                            make: 'BMW',
+                            mode: 'X5',
+                            year: 2021,
+                        },
+                        retired: false,
+                    },
+                }
+            },     
+        }).mount('#app')
+
+        // for(let i = 0; i < Array.length; i++){...}
+        // for(let key in Object){...}
+        // for(let index in Array){...}
+    </script>
+</body>
+</html>

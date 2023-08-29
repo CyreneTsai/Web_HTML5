@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>file read -- image more</title>
+    <style>
+        #skin {
+            border: 5px dashed #ccc;
+        }
+
+
+        /* "+" 號的大小跟字型 */
+        #add {
+            font: bold 100px Tahoma;
+            color: #ccc;
+
+            /* 垂直置中的方法 */
+            position: relative;
+            top: 50%;
+            transform: translate(a, 50%);
+
+
+        }
+
+        /* 圖檔的大小跟樣式 */
+        #theFile {
+
+            whidth: 400px;
+            height: 400px;
+            opacity: 0;
+
+            position: relative;
+            top: 0px;
+            left: 0px;
+
+        }
+    </style>
+
+
+    <script src="./10_new.js"></script>
+</head>
+
+<body>
+    <input type="file" id="theFile">
+    <p>
+        <textarea id="fileInfo" cols="70" rows="5"></textarea>
+    </p>
+
+    <h2>Content here</h2>
+    <video id="myMovie"></video>
+</body>
+
+</html>

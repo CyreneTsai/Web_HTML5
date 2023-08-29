@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+    <style>
+        ol li{
+            font: 18px Calibri;
+            background-color: #abc;
+            margin: 5px;
+            padding: 5px;
+        }
+        ol li:hover{
+            background-color: #cba;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        v-model 的修飾符    
+        - lazy: trigger when onblur(發生 change 事件)，等待輸入完成再顯示結果
+        - number: praseInt() | parseFloat()
+        - trim: 排除輸入時的前後空白 
+    -->
+
+    <div id="app"> <!-- HTML DOM template-->
+        Message: <input v-model="message">
+        <h3>{{message}}</h3>
+        <hr>
+
+        Message(lazy): <input v-model.lazy="message">
+        <h3>{{message}}</h3>
+        <hr>
+
+        Number: <input v-model.number="num">
+        <h3>{{num + 1}}</h3>
+        <hr>
+
+        Name: <input v-model.trim="name">
+        <h3>|{{name}}|</h3>
+        <hr>
+    </div>
+    
+    <script>
+        Vue.createApp({
+            data(){ 
+                return {                    
+                    message: '',
+                    num: 0,
+                    name: '',
+                }
+            },
+            methods: { },
+        }).mount('#app')
+
+    </script>
+</body>
+</html>

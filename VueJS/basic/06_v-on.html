@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <ul>
+            <li v-for="color in colors" v-on:click="showColor(color)">{{color}}</li>
+        </ul>
+
+    </div>
+
+    <script>
+
+
+        Vue.createApp({
+            data() {     // 變數放這裡
+                return {
+                    message: 'Hello',
+                    colors: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
+                }
+            },
+
+            methods: { //函數大部分放這裡 1-3的狀況(第四個要放其他地方)
+                showColor(theColor) {
+                    alert(`Hello, ${theColor.toUpperCase()}!`) //這邊用反引號‵ ‵
+                }
+            },
+
+        }).mount('#app')
+
+
+        // ------Note-------
+        // （自訂）函數三部曲：宣告　定義　呼叫
+
+        // 1. 不傳參數，沒有傳回值
+        // function action() { //宣告、定義
+
+        // }
+        // action()  //呼叫
+
+        // 2. 有傳參數，沒有傳回值
+        // function action(num) { //宣告、定義
+
+        // }
+        // action(5)  //呼叫
+
+
+        // 3. 有傳參數，有傳回值
+        // function action(num) { //宣告、定義
+        //     return num * 5
+
+        // }
+        // let ans = action(5)  //呼叫
+
+
+        // 4. 不傳參數，有傳回值
+        // function action(num) { //宣告、定義
+        //     return 123
+
+        // }
+        // let ans = action()  //呼叫
+
+    </script>
+</body>
+
+</html>

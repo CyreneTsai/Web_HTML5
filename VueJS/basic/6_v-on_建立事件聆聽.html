@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <ul>
+            <!-- <li v-for="color in colors" v-on:click="showColor(color)">{{color}}</li> -->
+
+            <!-- v-on 的縮寫是: 「@」 -->
+            <li v-for="color in colors" @click="showColor(color)">{{color}}</li>
+        </ul>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data(){     // 變數放這裡
+                return {
+                    message: 'Hello',                    
+                    colors: ['red','orange','yellow','green','blue','indigo','violet'],                    
+                }
+            },
+            methods: {  // 函數大部分放這裡
+                showColor(theColor){
+                    // alert(`Hello, ${theColor}!`)
+                    alert(`Hello, ${theColor.toUpperCase()}!`)
+                },
+            },
+        }).mount('#app')
+
+        /* ===
+        (自訂)函數三部曲: 宣告、定義和呼叫
+        1 不傳參數，沒有傳回值 (methods)
+            function action(){  // 宣告、定義
+
+            }
+            action()    // 呼叫
+
+        2 有傳參數，沒有傳回值 (methods)
+            function action(num){  // 宣告、定義
+
+            }
+            action(5)    // 呼叫
+
+        3 有傳參數，有傳回值 (methods)
+            function action(num){  // 宣告、定義
+                return num * 5
+            }
+            let ans = action(5)    // 呼叫
+
+        4 不傳參數，有傳回值 (computed)
+            function action(){  // 宣告、定義
+                return 123
+            }
+            let ans = action()    // 呼叫
+
+        === */
+    </script>
+</body>
+</html>

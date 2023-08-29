@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+
+</head>
+
+<body>
+
+
+    <div id="app">
+
+
+        <!-- 物件input  事件@keyup 處理函數"setMessage" -->
+        <input @kyeup="setMessage" :value="message">
+        <h3>{{message}}</h3>
+
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    message: '',
+                }
+            },
+            methods: {
+                setMessage(e) {
+                    this.message = e.target.value
+                }
+
+
+            },
+            computed: {},
+        }).mount('#app')
+
+    </script>
+</body>
+
+</html>

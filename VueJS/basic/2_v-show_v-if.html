@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <h1>{{message}}</h1>
+
+        <p v-show="loading">Loading (v-show)</p>
+        <p v-if="loading">Loading (v-if)</p>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data(){     // 變數放這裡
+                return {
+                    message: 'Hello',
+                    loading: false,
+                }
+            },     
+        }).mount('#app')
+
+        // if(expression){}
+    </script>
+</body>
+</html>

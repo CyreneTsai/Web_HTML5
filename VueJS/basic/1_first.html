@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+    <!-- <script src="https://unpkg.com/vue@3"></script> -->
+</head>
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <input type="text" v-model="message">
+    </div>
+
+    <div id="app2">
+        <!-- 這裡不能使用 Vue! -->
+    </div>
+
+    <script>
+        // step 1
+        // Vue.createApp()
+        // step 2
+        // Vue.createApp().mount()
+        // step 3
+        // Vue.createApp().mount('#app')
+        // step 4
+        // Vue.createApp({}).mount('#app')
+
+        // step 5
+        Vue.createApp({
+            // data: function(){},  // ES5
+            // data(){},            // ES6
+
+            data(){     // 變數放這裡
+                return {
+                    message: 'Hello',
+                }
+            },     
+        }).mount('#app')
+
+        // 安裝 Vue devtools
+    </script>
+</body>
+</html>

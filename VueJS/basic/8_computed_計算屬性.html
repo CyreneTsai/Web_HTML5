@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+    <style>
+        header{
+            margin: 10px;
+        }
+        header label{
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <header>
+            <label>身高: </label>
+            <input v-model="height">
+        </header>
+        <header>
+            <label>體重: </label>
+            <input v-model="weight">
+        </header>
+        <header>
+            <label>BMI: </label>
+            <span>{{calculate}}</span>
+        </header>
+    </div>
+    
+    <script>
+        // BMI ==> 體重(公斤) / (身高 / 100)的平方
+        Vue.createApp({
+            data(){     // 變數放這裡
+                return {
+                    message: 'Hello',                    
+                    height: 0,             
+                    weight: 0,  
+                    // calculate:  this.weight / Math.pow(this.height / 100, 2),         
+                }
+            },
+            methods: {  // 函數大部分放這裡
+               
+            },
+            computed: { //函數也可以放這裡，放在這裡的函數不用傳參數，但要有傳回值
+                calculate(){
+                    if(this.weight > 0 && this.height > 0){
+                        let bmi = this.weight / Math.pow(this.height / 100, 2)
+                        return bmi.toFixed(3)
+                    }else{
+                        return 0
+                    }
+                },
+            },
+        }).mount('#app')
+
+    </script>
+</body>
+</html>

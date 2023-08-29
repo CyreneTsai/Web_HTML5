@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+
+
+        <!-- 陣列 -->
+        <ul>
+            <li v-for="(color,index) in colors">{{index}}:{{color}}</li> <!-- 我想找兩個件 -->
+            <!-- (color,index) {{index}}:{{color}}前後順序不能換，因為會不對 -->
+
+        </ul>
+
+        <!-- 物件 -->
+        <ul>
+            <li v-for="(item,key) in  man">{{key}}:{{item}}</li> <!-- key value 對應 -->
+        </ul>
+
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {     // 變數放這裡
+                return {
+                    message: 'Hello',
+                    colors: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
+                    man: {
+                        name: 'Peter',
+                        age: 40,
+                        gender: 'male',
+                        favoriateColor: ['black', 'gray', 'white'],
+                        car: {
+                            make: 'BMW',
+                            mode: 'X5',
+                            year: 2021,
+                        },
+                        retired: false,
+                    },
+                }
+            },
+        }).mount('#app')
+
+        // for(let i=0; i<陣列.length; i++){...}  => for迴圈 陣列
+        // for(let key in Object)     => for迴圈 物件
+        // for(let index in Arry) => Vue使用這種方式：for迴圈 物件 in 陣列
+
+
+    </script>
+</body>
+
+</html>

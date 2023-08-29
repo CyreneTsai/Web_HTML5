@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+</head>
+
+<body>
+
+
+    <!-- HTML DOM Tamplate-----strat------ -->
+    <div id="app">
+        <h1>{{message}}</h1>
+
+
+        <!-- v-show 假如為真，就會存在/ 假如不為真只是隱藏起來，但一直都在（可用在收藏愛心功能） -->
+        <!-- v-if 假如為真，就會存在/ 假如不為真就會完全不見 -->
+
+        <p v-show="loading">Loading (v-show)</p>
+        <p v-if="loading">Loading (v-if)</p>
+
+    </div>
+    <!-- HTML DOM Tamplate-----end------ -->
+
+
+
+
+    <script>
+        Vue.createApp({
+            data() {     // 變數放這裡
+                return {
+                    message: 'Hello',
+                    loading: false,
+                }
+            },
+        }).mount('#app')
+
+        // if(expression){}
+    </script>
+
+</body>
+
+</html>

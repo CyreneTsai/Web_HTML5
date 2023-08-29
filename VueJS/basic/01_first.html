@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+
+    <!-- 先將CDN 註解掉：檔案同上　src="../js/vue.global.js" -->
+    <!-- <script src="https://unpkg.com/vue@3"></script> -->
+
+</head>
+
+<body>
+
+
+    <!-- HTML DOM Tamplate-----strat------ -->
+    <div　id="app">
+        <h1>{{message}}</h1> <!-- 我要告訴他要開始使用Vue了，表示資料來源是從Vue來的：鬍子鬍子{{}}-->
+        <input type="text>" v-model="message"> <!-- 指令 ：v-model 雙向綁定-->
+
+    </div>
+    <!-- HTML DOM Tamplate-----end------ -->
+
+
+
+    <div id="app2">
+        <!-- 這邊不能使用Vue，因為id不是app -->
+    </div>
+
+
+    <!-- 請將script放在body最後面 -->
+    <script>
+        // 開始使用Vue：
+        // ----step1：用Vue
+        Vue.ctreateApp()
+        //---- step2：誰可以認得Vue? mount掛載資料
+        Vue.createApp().mount()
+
+        // ----step3：掛在哪？我要掛在id=app
+        Vue.createApp().mount('#app')
+
+        // ----step4：物件object要包在物件裡
+        Vue.createApp({}).mount('#app')
+
+        // ----step5：我們在大括號後換行，且變數放在funtion裡面(屬性(){} //ES62的縮寫)
+        Vue.createApp({
+            // data: function(){},  // ES5
+            // data(){},            // ES6
+
+            data() {     // 變數放這裡
+                return {
+                    message: 'Hello',
+                }
+            },
+        }).mount('#app')
+
+        // ----step6：安裝 Vue devtools chrome 擴充工具 
+
+    </script>
+
+</body>
+
+</html>

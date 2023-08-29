@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <!-- <img src="https://i.pinimg.com/originals/a3/aa/f0/a3aaf0dfa1ec9b78019bcaaf2df0d6de.png" alt="蠟筆小新"> -->
+        
+        <!-- 屬性值從vue取得: v-bind:屬性="屬性值" -->
+        <!-- <img v-bind:src="imgURL" alt="蠟筆小新"> -->
+
+        <!-- v-bind 的縮寫是: 「:」 -->
+        <img :src="imgURL" :alt="name" width="300">
+
+        <hr v-for="color in colors" :color="color">
+    </div>
+
+    <script>
+        Vue.createApp({
+            data(){     // 變數放這裡
+                return {
+                    message: 'Hello',
+                    imgURL: 'https://i.pinimg.com/originals/a3/aa/f0/a3aaf0dfa1ec9b78019bcaaf2df0d6de.png',
+                    name: '蠟筆小新',
+                    colors: ['red','orange','yellow','green','blue','indigo','violet'],                    
+                }
+            },     
+        }).mount('#app')
+    </script>
+</body>
+</html>

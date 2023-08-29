@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html2canvas</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        img{
+            width: 250px;
+        }
+
+        #capture{
+            padding: 10px; 
+            background: #f5da55;
+            width: 250px;
+            text-align: center;;
+        }
+    </style>
+</head>
+<body>
+    <div id="capture">
+        <h4 style="color: #000; ">Hello world!</h4>
+        <img src="../../images/washDrawing/046.JPG">
+    </div>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <script>
+        html2canvas(document.querySelector("#capture")).then(canvas => {
+            document.body.appendChild(canvas)
+        });
+    </script>
+</body>
+</html>
