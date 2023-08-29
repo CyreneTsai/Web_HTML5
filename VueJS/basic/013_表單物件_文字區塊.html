@@ -24,8 +24,12 @@
         Vue.createApp({
             data() {
                 return {
+                    //我上方input 的地方也要跟著連動，所以要加:value="message"
+
                     message: '',
                 }
+
+
             },
             methods: {
                 setMessage(e) {

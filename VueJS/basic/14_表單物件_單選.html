@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <!-- <input type="radio" name="gender" value="male" checked> Male
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="others"> Others -->
+
+        <input type="radio" v-model="gender" value="male"> Male
+        <input type="radio" v-model="gender" value="female"> Female
+        <input type="radio" v-model="gender" value="others"> Others
+
+        <p>{{gender}}</p>
+    </div>
+    
+    <script>
+        Vue.createApp({
+            data(){ 
+                return {                    
+                    // gender: '',
+                    gender: 'male', // 如果要預選
+                }
+            },
+            methods: {}, 
+            computed: {},
+        }).mount('#app')
+
+    </script>
+</body>
+</html>

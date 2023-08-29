@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <!-- 使用 v-model 來做雙向綁定 -->
+        <!-- <input v-model="message">
+        <h3>{{message}}</h3> -->
+
+        <!-- 如果沒有 v-model，要如何雙向綁定 -->
+        <input @keyup="setMessage" :value="message">
+        <p>{{message}}</p>
+
+        <textarea v-model="theText" cols="20" rows="5" @click="action"></textarea>
+        <p :style="setCSS">{{theText}}</p>
+    </div>
+    
+    <script>
+        Vue.createApp({
+            data(){ 
+                return {                    
+                    message: '',
+                    theText: '',
+                }
+            },
+            methods: {
+                setMessage(e){
+                    this.message = e.target.value
+                },
+                action(e){
+                    // alert(getComputedStyle(e.target).font)  // 13.3333px monospace
+                },
+            }, 
+            computed: {
+                setCSS(){
+                    return {
+                        whiteSpace: 'pre',
+                        font: '13.3333px monospace',
+                    }
+                },
+            },
+        }).mount('#app')
+
+    </script>
+</body>
+</html>
+
+<!--
+What did
+   you 
+  use 
+your      computer
+       for?
+-->
