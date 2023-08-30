@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app"> <!-- HTML DOM template -->
+        <button @click="update"> Add </button>
+        <button id="delButton"> Delete </button>
+
+        <h3>{{count}}</h3>
+    </div>
+
+    <script>
+        // Vue instance (Vue 實例)：ｖｕｅ的屬性與方法＝ｖｕｅ的ＡＰＩ
+        // life cycle hooks
+        // 建立階段: beforeCreate, created, beforeMount, mounted
+        // 更新階段: beforeUpdate, updated
+        // 銷毀階段: beforeUnmount, unmounted
+        const vueApp = Vue.createApp({
+            data() {
+                return {
+                    count: 0,
+                }
+            },
+            methods: {
+                update() {
+                    this.count += 1
+                },
+            },
+            computed: {},
+        })
+
+        vueApp.mount('#app')
+    </script>
+</body>
+
+</html>

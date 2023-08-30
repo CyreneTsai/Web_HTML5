@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.global.js"></script>  
+</head>
+<body> 
+    <div id="app"> <!-- HTML DOM template -->
+        <my-component message="Hello" text="VueJS"></my-component>
+    </div>
+    
+    <script>
+        const App = Vue.createApp()
+
+        App.component('my-component',{})
+
+        App.mount('#app') 
+    </script>
+</body>
+</html>

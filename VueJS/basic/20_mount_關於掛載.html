@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.global.js"></script>         
+</head>
+<body>
+    <!-- 掛載 (mount): 將 Vue 和 HTML DOM 做連結 -->
+    <div id="app"> <!-- HTML DOM template -->
+        <h1>{{message}}</h1>
+    </div>
+
+    <script>
+        // 1 先宣告再掛載
+        // const App = Vue.createApp({
+        //     data(){ 
+        //         return {
+        //             message: 'Hello',
+        //         }   
+        //     },
+        //     methods: {},
+        //     computed: {},         
+        // })
+        // App.mount('#app') 
+
+        // 2 使用 template 和 HTML DOM 做連結
+        const App = Vue.createApp({
+            data(){ 
+                return {
+                    message: 'Hello',
+                }   
+            },
+            methods: {},
+            computed: {},  
+            template: ` 
+                <h1>text</h1>
+                <h2>text</h2>
+                <h3>text</h3>
+                <h4>text</h4>
+            `,       
+        })
+        App.mount('#app') 
+        
+    </script>
+</body>
+</html>
+

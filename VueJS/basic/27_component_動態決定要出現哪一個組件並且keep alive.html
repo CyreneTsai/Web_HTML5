@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.global.js"></script>  
+</head>
+<body> 
+    <div id="app"> <!-- HTML DOM template -->
+        <button @click="content='name'"> Name </button>
+        <button @click="content='date'"> Date </button>
+        <button @click="content='lessons'"> Lessons </button>
+        <button @click="content='apply'"> Apply </button>
+        <hr>
+
+        <keep-alive>
+            <component :is='content'></component>        
+        </keep-alive>
+    </div>
+    
+    <script>
+        const App = Vue.createApp({
+            data(){ 
+                return {
+                    content: 'name',
+                }   
+            },
+
+            components: {
+                name: {
+                    template: `
+                        <p>
+                            Your name: <input>
+                        </p>
+                    `,
+                },
+                date: {
+                    template: `
+                        <p>
+                            <input type="checkbox"> Morning
+                            <input type="checkbox"> Afternoon
+                            <input type="checkbox"> Evening
+                        </p>
+                    `,
+                },
+                lessons: {
+                    template: `
+                        <p>
+                            <input type="checkbox"> HTML
+                            <input type="checkbox"> CSS
+                            <input type="checkbox"> JavaScript
+                            <input type="checkbox"> jQuery
+                            <input type="checkbox"> HTML5
+                            <input type="checkbox"> VueJS
+                        </p>
+                    `,
+                },
+                apply: {
+                    template: `
+                        <p>
+                            <textarea></textarea>
+                        </p>
+                        <button>Submit</button>
+                    `,
+                },
+            },
+        })
+        App.mount('#app') 
+    </script>
+</body>
+</html>
+
+

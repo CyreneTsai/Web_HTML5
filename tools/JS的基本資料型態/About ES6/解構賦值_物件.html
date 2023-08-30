@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解構賦值</title>
+</head>
+<body>
+    <script>
+        const man = {
+            name: 'Peter',
+            age: 40,
+            gender: 'male',
+            favoriateColor: ['black','gray','white'],
+            car: {
+                make: 'BMW',
+                mode: 'X5',
+                year: 2021,
+            },
+            retired: false,
+        }
+
+        // console.log(man.name);
+        // console.log(man.favoriateColor);
+
+        const {name, age, favoriateColor} = man
+        
+        console.log(name);
+        console.log(age);
+        console.log(favoriateColor);
+    </script>
+</body>
+</html>

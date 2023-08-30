@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <style></style>
+    <script src="../js/vue.global.js"></script>   
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template -->
+        <!-- <input type="file"> 不能使用 v-model -->
+
+        <!-- 參考 html5/5_imageRead.html + 6_new.js -->
+        <input type="file" @change="fileChange">
+        <p>{{image}}</p>
+        <img :src="image">
+    </div>
+
+    <script>
+        Vue.createApp({
+            data(){ 
+                return {
+                    image: '',
+                }   
+            },
+            methods: {
+                fileChange(e){
+                    let file = e.target.files[0]
+                    // console.log(file);
+
+                    let readFile = new FileReader()
+                    readFile.readAsDataURL(file)
+
+                    // 1 在 Vue 裡面，不要寫 function(){}
+                    // readFile.addEventListener('load', function(){
+                    //     console.log(this);      // FileReader 物件
+                    //     this.image = readFile.result      
+                    // })
+
+                    // 2 改成箭頭函數
+                    // readFile.addEventListener('load', () => {
+                    //     console.log(this);   // Vue 的 ES6 Proxy 物件  
+                    //     this.image = readFile.result      
+                    // })
+
+                    // 3 呼叫另一個函數
+                    readFile.addEventListener('load', this.loadImage)
+                },
+                loadImage(e){
+                    this.image = e.target.result 
+                },
+            },
+        }).mount('#app') 
+
+    </script>
+</body>
+</html>
+

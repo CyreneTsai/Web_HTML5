@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.global.js"></script>       
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template -->
+        <h1>{{message}}</h1>
+        <button @click="action">Click me</button>
+    </div>
+
+    <script>
+        // Options API
+        Vue.createApp({
+            data(){ 
+                return {
+                    message: 'Hello',
+                    score: 0,
+                    loading: true,
+                }   
+            },
+            methods: {
+                action(){
+                    alert(`${this.message} Vue!`)
+                },
+            },
+        }).mount('#app') 
+
+        // Composition API        
+
+        Vue.createApp(App).mount('#app')
+
+    </script>
+</body>
+</html>
+

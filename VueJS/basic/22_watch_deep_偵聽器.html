@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.global.js"></script>    
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template -->
+        <input v-model.lazy="num.x">
+    </div>
+
+    <script>
+        const App = Vue.createApp({
+            data(){ 
+                return {
+                    num: {
+                        x: 100,
+                        y: 200,
+                        z: 300,
+                    },
+                }   
+            },
+            methods: {},
+            computed: {},    
+            watch: {
+            // 1 宣告成函數(方法)
+            // 2 宣告成物件
+                num: {
+                    handler(newVal){
+                        console.log(`num: ${newVal.x}`);
+                    },
+                    immediate: false,   // false by default, if true --> 當 Vue 一建立(create)立刻執行 watch
+                    deep: true,       // false by default, if true --> 偵聽物件內部的變化
+                },
+
+            },     
+        })
+        App.mount('#app') 
+    </script>
+</body>
+</html>
+

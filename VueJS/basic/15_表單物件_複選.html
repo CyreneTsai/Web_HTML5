@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app"><!-- HTML DOM template-->
+
+        <!-- 一般HTML -->
+        <!-- <input type="checkbox" name="interest" value="sleep" checked> 睡覺
+        <input type="checkbox" name="interest" value="game"> 電動
+        <input type="checkbox" name="interest" value="read"> 閱讀
+        <input type="checkbox" name="interest" value="diving"> 潛水
+        <input type="checkbox" name="interest" value="trip"> 旅遊 -->
+
+        <!-- Vue的寫法 -->
+        <input type="checkbox" v-model="interest" value="sleep"> 睡覺
+        <input type="checkbox" v-model="interest" value="game"> 電動
+        <input type="checkbox" v-model="interest" value="read"> 閱讀
+        <input type="checkbox" v-model="interest" value="diving"> 潛水
+        <input type="checkbox" v-model="interest" value="trip"> 旅遊
+
+        <p>{{interest}}</p>
+        <hr>
+
+        <input type="checkbox" v-model="agree"> 我同意
+        <p>{{agree}}</p>
+
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    interest: [], //如果我要複選，就要記得宣告成陣列
+                    interest: ['read'], //預選為read
+                    agree: false,
+                }
+            },
+            methods: {},
+            computed: {},
+        }).mount('#app') 
+    </script>
+</body>
+
+</html>

@@ -15,8 +15,12 @@
         <input @keyup="setMessage" :value="message">
         <p>{{message}}</p>
 
-        <textarea v-model="theText" cols="20" rows="5" @click="action"></textarea>
+        <!-- <textarea v-model="theText" cols="20" rows="5" @click="action"></textarea> -->
+        <textarea v-model="theText" cols="20" rows="5"></textarea>
         <p :style="setCSS">{{theText}}</p>
+
+        <p v-pre>{{message}}</p>
+        <p v-pre>{{this will not be compiled}}</p>
     </div>
     
     <script>

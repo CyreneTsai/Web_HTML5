@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.global.js"></script>    
+</head>
+<body> 
+    <div id="app"> <!-- HTML DOM template -->
+        <!-- <img src="../../images/foot.gif" alt="icon">
+        <span> About </span>
+        <img src="../../images/bull1.gif" alt="write">
+        <br>
+        <img src="../../images/foot.gif" alt="icon">
+        <span> Products </span>
+        <img src="../../images/bull1.gif" alt="write">
+        <br>
+        <img src="../../images/foot.gif" alt="icon">
+        <span> Contact </span>
+        <img src="../../images/bull1.gif" alt="write">
+        <br>
+        <img src="../../images/foot.gif" alt="icon">
+        <span> Nothing </span>
+        <img src="../../images/bull1.gif" alt="write">
+        <br>
+        <img src="../../images/foot.gif" alt="icon">
+        <span> Something </span>
+        <img src="../../images/bull1.gif" alt="write">
+        <br> -->
+
+        <!-- 觀察 devtools ==> Elements 的變化 -->
+        <!-- <div v-for="header in headers">
+            <img src="../../images/foot.gif" alt="icon">
+            <span> {{header}} </span>
+            <img src="../../images/bull1.gif" alt="write">
+            <br>
+        </div> -->
+
+        <template v-for="header in headers">
+            <img src="../../images/foot.gif" alt="icon">
+            <span> {{header}} </span>
+            <img src="../../images/bull1.gif" alt="write">
+            <br>
+        </template>
+
+    </div>
+
+    <script>
+        const App = Vue.createApp({
+            data(){ 
+                return {
+                    headers: ['About','Products','Contact','Nothing','Something'],
+                }   
+            },
+            methods: {},
+            computed: {}, 
+        })
+        App.mount('#app') 
+    </script>
+</body>
+</html>
+

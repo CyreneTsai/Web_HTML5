@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.global.js"></script>  
+</head>
+<body> 
+    <div id="app"> <!-- HTML DOM template -->
+        <todo-list></todo-list>
+    </div>
+    
+    <script>
+        const App = Vue.createApp()
+
+        App.component('todo-list',{
+            template: ``,
+        })
+        App.component('todo-input',{
+            template: ``,
+        })
+        App.component('todo-item',{
+            template: ``,
+        })
+
+        App.mount('#app') 
+    </script>
+</body>
+</html>
+<!-- 
+<form>
+    <input type="text">
+    <button>Submit</button>
+</form>
+<ol>
+    <li></li>
+</ol> 
+-->
+
+

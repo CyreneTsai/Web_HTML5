@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>陣列解構，給預設值 Function default</title>
+</head>
+<body>
+    <script>
+        // 1 傳入數值(陣列)進去，並輸出字串(陣列)
+        // const ArrToStr = (numArray) => {
+        //     const strArray = numArray.map(function(item){
+        //         return item + ''
+        //     })
+        //     return strArray
+        // }
+        // console.log(ArrToStr([2,4,6,8]))
+
+        // 2 如果呼叫 ArrToStr() 沒傳值進去，numArray 會是 undefined，
+            // undefined 無法使用 map()，導致程式壞掉
+        // const ArrToStr = (numArray) => {
+        //     const strArray = numArray.map(function(item){
+        //         return item + ''
+        //     })
+        //     return strArray
+        // }
+        // console.log(ArrToStr())
+
+        // 3 解決以上狀況，可以使用 if...else 
+        // const ArrToStr = (numArray) => {
+        //     if(!numArray) numArray = []  // 加這行
+
+        //     const strArray = numArray.map(function(item){
+        //         return item + ''
+        //     })
+        //     return strArray
+        // }
+        // console.log(ArrToStr())
+
+        // 4 解決以上狀況，使用 ES6 (給預設值) 可以排除基本的錯誤 
+        // const ArrToStr = (numArray = []) => {
+        //     const strArray = numArray.map(function(item){
+        //         return item + ''
+        //     })
+        //     return strArray
+        // }
+        // console.log(ArrToStr())
+
+        // 5 改成箭頭函數
+        const ArrToStr = (numArray = []) => {
+            const strArray = numArray.map( item => item + '')
+            return strArray
+        }
+        console.log(ArrToStr())
+        console.log(ArrToStr([2,4,6,8]))  // 這樣也可以執行
+    </script>
+</body>
+</html>

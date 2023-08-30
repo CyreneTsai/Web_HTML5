@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        年
+        <select v-model="selectedYear">
+            <option v-for="year in years">{{year}}</option>
+        </select>
+
+        月
+        <select v-model="selectedMonth">
+            <!-- <option v-for="month in months">{{month}}</option> -->
+            <option v-for="month in 12">{{month}}</option>
+        </select>
+
+        日
+        <select v-model="selectedDate">
+            <!-- <option v-for="month in months">{{month}}</option> -->
+            <option v-for="date in 31">{{date}}</option>
+        </select>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    //年份直接用寫的
+                    years: [2021, 2022, 2023, 2024, 2025, 2026],
+                    months: ['January', 'February', 'March', 'April', 'May', 'June'],
+
+
+                    //現在日期的寫法1
+                    selectedYear: new Date().getFullYear(),
+                    selectedMonth: new Date().getMonth() + 1, //getMonth() 要加1，因為月份從0開始
+                    selectedDate: new Date().getDate(),
+                }
+            },
+            methods: {},
+            computed: {
+
+                //年份用算的，用conputed 下去算(但這個怪怪的~~~)
+                // year() {
+                //     total = []
+                //     for (let i = 1920; i <= 2023; i++) {
+
+                //     }
+                //     return total
+                // }
+
+                //現在日期的寫法2
+
+
+            },
+
+
+        }).mount('#app')
+
+
+        // 用switch 下去寫月份，
+        let month = 8
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                days = 31
+                break
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                days = 30
+                break
+            default:
+                days = 28  // or days = 29
+        }
+
+    </script>
+</body>
+
+</html>

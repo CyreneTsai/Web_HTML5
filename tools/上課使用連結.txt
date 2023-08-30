@@ -4,5 +4,33 @@ https://unsplash.com/
 https://pixabay.com/
 https://www.flaticon.com/
 
+顏色選擇
+https://color.adobe.com/zh/explore
+https://coolors.co/
+
 html2canvas
 https://html2canvas.hertzen.com/
+
+emailJS
+https://www.emailjs.com/
+
+留言版
+summernote
+https://summernote.org/
+
+ckeditor
+https://ckeditor.com/
+
+
+Youtube 資源
+Alex 宅幹嘛
+https://www.youtube.com/channel/UCEL8871qFEakpqYpwBSjHNA
+
+CSScoke
+https://www.youtube.com/@CSScoke
+
+JSON validator
+https://jsonformatter.curiousconcept.com/
+
+JSON viewer
+https://jsoneditoronline.org/

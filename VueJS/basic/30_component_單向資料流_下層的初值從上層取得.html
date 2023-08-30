@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.global.js"></script>  
+</head>
+<body> 
+    <div id="app"> <!-- HTML DOM template -->
+        <button @click="count+=1"> Add </button>
+        <h3>Root ==> {{count}}</h3>
+        <hr>
+
+        <counter></counter>
+    </div>
+    
+    <script>
+        const App = Vue.createApp({
+            data(){
+                return {
+                    count: 0,
+                }
+            },
+        })
+
+        App.component('counter',{            
+            template: ``,
+        })
+
+        App.mount('#app') 
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.global.js"></script>  
+</head>
+<body> 
+    <div id="app"> <!-- HTML DOM template -->
+        <button @click="count+=1"> Add </button>
+        <h3>{{count}}</h3>   
+        <button @click="count+=1"> Add </button>
+        <h3>{{count}}</h3> 
+        <button @click="count+=1"> Add </button>
+        <h3>{{count}}</h3>      
+        <hr>
+
+        <counter></counter>
+        <counter></counter>
+        <counter></counter>
+    </div>
+    
+    <script>
+        const App = Vue.createApp({
+            data(){ 
+                return {
+                    count: 0,
+                }   
+            },
+        })
+
+        // global component
+        // 語法:
+        // App.component('組件名稱',{
+        //     ...
+        //     template: `定義視覺元件`,
+        // })
+
+        App.component('counter',{
+            // 為什麼組件的 data 必須是 function?
+            // 因為組件可以重複使用，如果 counter 有好幾組，他們應該各自運作，
+            // 所以每次使用變數的時候，data 就會臨時建立物件並 return 資料
+            data(){
+                return {
+                    count: 100,
+                }
+            },
+            template: `
+                <button @click="count+=1"> Add </button>
+                <h3>{{count}}</h3>
+            `,
+        })
+
+        App.mount('#app') 
+    </script>
+</body>
+</html>
+
+

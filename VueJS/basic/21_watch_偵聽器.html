@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.global.js"></script>
+</head>
+
+<body>
+    <!-- 偵聽器 (watch): 用來偵聽 data 或 computed 的變化 -->
+    <div id="app"> <!-- HTML DOM template -->
+        <input v-model.lazy="num">
+
+        <p>{{numSquare}}</p>
+    </div>
+
+    <script>
+        const App = Vue.createApp({
+            data() {
+                return {
+                    num: 0,
+                }
+            },
+            methods: {},
+            computed: {
+                numSquare() {
+                    return Math.pow(this.num, 2)
+                },
+            },
+            watch: {
+                // 1 宣告成函數(方法)
+                // num(val){
+                //     console.log(val);
+                // },
+
+                // num(newVal, oldVal){
+                //     console.log(`num: ${oldVal} ---> ${newVal}`);
+                // },
+                numSquare(newVal, oldVal) {
+                    console.log(`numSquare: ${oldVal} ---> ${newVal}`);
+                },
+
+                // 2 宣告成物件
+                num: {
+                    handler(newVal, oldVal) {
+                        console.log(`num: ${oldVal} ---> ${newVal}`);
+                    },
+                    immediate: true,   // false by default, if true --> 當 Vue 一建立(create)立刻執行 watch
+                    deep: false,       // false by default, if true --> 見下一個程式
+                },
+            },
+        })
+        App.mount('#app') 
+    </script>
+</body>
+
+</html>
