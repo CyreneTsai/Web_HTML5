@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Vue</title>
+    <style>
+        .item{
+            font: 18px Calibri;
+            background-color: #abc;
+            margin: 5px;
+            padding: 5px;
+        }
+        .item:hover{
+            background-color: #cba;
+            cursor: pointer;
+        }
+    </style>
     <script src="../js/vue.global.js"></script>  
 </head>
 <body> 
@@ -14,13 +26,51 @@
         const App = Vue.createApp()
 
         App.component('todo-list',{
-            template: ``,
+            data(){
+                return {
+                    tasks: [],
+                }
+            },
+            methods: {
+                addTask(item){
+                    this.tasks.push(item)
+                },
+                removeTask(index){
+                    this.tasks.splice(index, 1)
+                },
+            },
+            template: `
+                <todo-input @abc="addTask"></todo-input>
+                <ol>
+                    <todo-item v-for="(task,index) in tasks" :xyz="task" @click="removeTask(index)"></todo-item>
+                </ol>
+            `,
         })
         App.component('todo-input',{
-            template: ``,
+            data(){
+                return {
+                    task: '',
+                }
+            },
+            methods: {
+                submitData(e){
+                    // e.preventDefault();
+                    
+                    // this.$emit('自訂事件名稱', 值1, 值2,...)
+                    this.$emit('abc', this.task)
+                    this.task = ''
+                },
+            },
+            template: `
+                <form @submit.prevent="submitData">
+                    <input v-model="task">
+                    <button>Submit</button>
+                </form>
+            `,
         })
         App.component('todo-item',{
-            template: ``,
+            props: ['xyz'],
+            template: `<li class="item">{{xyz}}</li>`,
         })
 
         App.mount('#app') 

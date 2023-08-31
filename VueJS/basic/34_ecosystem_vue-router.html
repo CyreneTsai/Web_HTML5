@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue@3"></script>  
+    <script src="https://unpkg.com/vue-router@4"></script>  
+</head>
+<body> 
+    <div id="app"> <!-- HTML DOM template -->
+        <!-- <a href="">Home</a> | 
+        <a href="">About</a> | 
+        <a href="">Products</a> -->
+
+        <p>
+            <router-link to="/">Home</router-link> | 
+            <router-link to="/about">About</router-link> | 
+            <router-link to="/products">Products</router-link>
+        </p>
+        <router-view></router-view>
+    </div>
+    
+    <script>
+        // const 組件名稱 = {
+        //     data(){},
+        //     methods: {},
+        //     template: ``,
+        // }
+
+        const Home = {template: `<div><h1> $Home$ </h1></div>`}
+        const About = {template: `<div><h1> @About@ </h1></div>`}
+        const Products = {template: `<div><h1> &Products& </h1></div>`}
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),  // 路徑有包含 #
+            // history: VueRouter.createWebHistory(),  // 路徑不包含 #
+            // routes: [{},{},....],   // 在哪個路徑下，render 哪個組件
+            routes: [
+                {path: '/', component: Home},
+                {path: '/about', component: About},
+                {path: '/products', component: Products}
+            ], 
+        })
+
+        
+        Vue.createApp({}).use(router).mount('#app') 
+    </script>
+</body>
+</html>

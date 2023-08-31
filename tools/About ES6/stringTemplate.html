@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 new featurea -- string template(使用反引號 backtick)</title>
+</head>
+<body>
+    <script>
+        // 1 字串串接
+        let name = 'Peter'
+        console.log('Hello ' + name + '!')
+        console.log(`Hello ${name}!`)
+        console.log(`====================`)
+
+        // 2 插入表達式
+        function sayHello(name, days){
+            console.log(`Hello, ${name}. It has been ${days * 24 * 60} mintues.`)
+        }
+        sayHello('Peter', 3)
+        sayHello('Tina', 2)
+
+        console.log(`====================`)
+        function sayHelloAgain(name, days){
+            console.log(`Hello, ${name}. ${(days >= 7) ? 'It has been a long time since I saw you last.' : ''}`)
+        }
+        sayHelloAgain('Peter', 3)
+        sayHelloAgain('Stella', 10)
+        console.log(`====================`)
+
+        // 3 多行字串
+        let longString = 'This is a sentiment shared by many Indians, for whom dal is not just an everyday' + 'staple, but essential comfort food, as well as an easily available source of protein, '+ 
+        'especially for vegetarians and vegans.' +
+        'Dal is prepared all across India, each region with its own preferred lentil, spices, seasoning and' + 'cooking style. In the south, yellow toor dal (pigeon peas) is added to sambhar' +
+        ' (a spicy, tangy stew); while in Punjab up north, rich and creamy '
+
+        let backtickLongString = `
+        This is a sentiment shared by many Indians, for whom dal is not just an everyday staple, but essential comfort food, as well as an easily available source of protein, especially for vegetarians and vegans.
+
+        Dal is prepared all across India, each region with its own preferred lentil, spices, seasoning and cooking style. In the south, yellow toor dal (pigeon peas) is added to sambhar (a spicy, tangy stew); while in Punjab up north, rich and creamy dal makhani is made with whole black urad dal (black gram).
+
+        But the most common method of preparation is to cook lentils until they are almost soft, add a tempering of mustard seeds, cumin seeds and slit green chilli, and then serve the thick and soupy dal with fresh coriander as a garnish. As Pidathala said, "you can use one base ingredient to create many dishes – add gongura leaves (red sorrel greens) for a sour flavour, or make it more hearty by adding some bottle gourd."
+
+        In fact, it would not be an exaggeration to say that there are likely as many recipes for dal as there are cooks.
+        `
+
+        let tagLongString = `
+        <div id="big_wrapper">
+			<header>
+				<div id="newItem"></div>
+				<div id="content">	
+					<nav>
+						Item : <span id="itemCount">0</span> item(s)
+					</nav>
+					<nav>
+						Subtotal : $ <span id="subtotal">0</span>
+					</nav>
+				</div>
+				<div id="shopButton">
+					<span class="cartProcess"><a href="4_cartEdit.html">Edit Cart</a></span>
+					<span class="cartProcess">Checkout</span>
+				</div>
+				<div style="clear:both;"></div>
+			</header>
+			<hr>
+			<section>
+				<ul>
+					<li>
+						<div>
+							<img src="imgs/formosa.jpg">
+							Formosa
+						</div>
+						<div>
+							Price : $5000
+						</div>
+						<div>
+							<span id="A1001" class="addButton">
+								Add Cart
+								<input type="hidden" value="Formosa|formosa.jpg|5000">
+							</span>
+						</div>
+					</li>
+					<li>
+						<div>
+							<img src="imgs/brown.jpg">
+							Teddy Brown
+						</div>
+						<div>
+							Price : $7000
+						</div>
+						<div>
+							<span id="A1002" class="addButton">
+								Add Cart
+								<input type="hidden" value="Teddy Brown|brown.jpg|7000">
+							</span>
+						</div>
+					</li>
+					<li>
+						<div>
+							<img src="imgs/cinnamon.jpg">
+							Teddy Cinnamon
+						</div>
+						<div>
+							Price : $6800
+						</div>
+						<div>
+							<span id="A1003" class="addButton">
+								Add Cart
+								<input type="hidden" value="Teddy Cinnamon|cinnamon.jpg|6800">
+							</span>
+						</div>
+					</li>
+					<li>
+						<div>
+							<img src="imgs/innocent.jpg">
+							Innocent Bear
+						</div>
+						<div>
+							Price : $7200
+						</div>
+						<div>
+							<span id="A1004" class="addButton">
+								Add Cart
+								<input type="hidden" value="Innocent Bear|innocent.jpg|7200">
+							</span>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<div>
+							<img src="imgs/lion.jpg">
+							Lion Bear
+						</div>
+						<div>
+							Price : $8000
+						</div>
+						<div>
+							<span id="A1005" class="addButton">
+								Add Cart
+								<input type="hidden" value="Lion Bear|lion.jpg|8000">
+							</span>
+						</div>
+					</li>
+					<li>
+						<div>
+							<img src="imgs/milk.jpg">
+							Teddy Milk
+						</div>
+						<div>
+							Price : $6000
+						</div>
+						<div>
+							<span id="A1006" class="addButton">
+								Add Cart
+								<input type="hidden" value="Teddy Milk|milk.jpg|6000">
+							</span>
+						</div>
+					</li>
+					<li>
+						<div>
+							<img src="imgs/panda.jpg">
+							Panda
+						</div>
+						<div>
+							Price : $6800
+						</div>
+						<div>
+							<span id="A1007" class="addButton">
+								Add Cart
+								<input type="hidden" value="Panda|panda.jpg|6800">
+							</span>
+						</div>
+					</li>
+					<li>
+						<div>
+							<img src="imgs/peterRabbit.jpg">
+							Peter Rabbit
+						</div>
+						<div>
+							Price : $5500
+						</div>
+						<div>
+							<span id="A1008" class="addButton">
+								Add Cart
+								<input type="hidden" value="Peter Rabbit|peterRabbit.jpg|5500">
+							</span>
+						</div>
+					</li>
+				</ul>
+			</section>
+		</div>
+        
+        
+        `
+
+    </script>
+</body>
+</html>

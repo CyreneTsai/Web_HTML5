@@ -11,7 +11,7 @@
         <h3>Root ==> {{count}}</h3>
         <hr>
 
-        <counter :init="count"></counter>
+        <counter :init="count" @child-emit="makeSync"></counter>
         <!-- counter 組件的 count 初值由 root 的 count 取得 -->
     </div>
     
@@ -22,6 +22,11 @@
                     count: 0,
                 }
             },
+            methods: {
+                makeSync(count){
+                    this.count = count
+                },
+            },
         })
 
         App.component('counter',{  
@@ -30,9 +35,15 @@
                 return {
                     count: this.init,
                 }
-            },          
+            }, 
+            methods: {
+                sync(){
+                    this.$emit('child-emit', this.count)
+                },
+            },         
             template: `
             <button @click="count+=1"> Add </button>
+            <button @click="sync"> Sync </button>
             <h3>Counter 組件 ==> {{count}}</h3>
             `,
         })

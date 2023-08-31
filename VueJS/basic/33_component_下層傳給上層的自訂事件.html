@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.global.js"></script>  
+</head>
+<body> 
+    <div id="app"> <!-- HTML DOM template -->
+        <!-- 1 -->
+        <!-- <the-button></the-button> -->
+
+        <!-- 2 -->
+        <the-button @my-click="fromChild"></the-button>
+    </div>
+    
+    <script>
+        const App = Vue.createApp({
+            data(){
+                return {
+                    
+                }
+            },
+            methods: {
+                // 2-1 沒有傳參數
+                // fromChild(){
+                //     alert(`Hello, Parent!`)
+                // },
+
+                // 2-2 接收一個參數
+                // fromChild(x){
+                //     alert(`Hello, Parent! Give me ${x} dollars`)
+                // },
+
+                // 2-3 接收多個參數
+                fromChild(x, y, z){
+                    alert(`Hello, Parent! Give me ${x} or ${y} or ${z} dollars`)
+                },
+            },
+        })
+
+        App.component('the-button',{ 
+            // 1
+            template: `<button @click="clicked">Click me</button>`,
+            methods: {
+                clicked(){
+                    // 1
+                    // alert(`Hi, Child!`)
+
+                    // 2-1 child 發出自訂事件與上層溝通，沒有傳參數
+                    // this.$emit('my-click')
+
+                    // 2-2 child 發出自訂事件與上層溝通，傳一個參數
+                    // this.$emit('my-click', 100)
+
+                    // 2-2 child 發出自訂事件與上層溝通，傳多個參數
+                    this.$emit('my-click', 100, 200, 300)
+                },
+            },
+        })
+
+        App.mount('#app') 
+    </script>
+</body>
+</html>

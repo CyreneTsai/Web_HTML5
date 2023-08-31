@@ -8,12 +8,23 @@
 <body> 
     <div id="app"> <!-- HTML DOM template -->
         <my-component message="Hello" text="VueJS"></my-component>
+        <your-component the-message="Hello" the-text="world"></your-component>
     </div>
     
     <script>
         const App = Vue.createApp()
 
-        App.component('my-component',{})
+        App.component('my-component',{
+            props: ['message','text'],
+            template: `<h1>{{message}} {{text}}!</h1>`,
+        })
+        App.component('your-component',{
+            props: ['the-message','the-text'],
+            // props: ['theMessage','theText'],        // 也可以
+
+            // template: `<h1>{{the-message}} {{the-text}}!</h1>`,  // 不行
+            template: `<h1>{{theMessage}} {{theText}}!</h1>`,   // camelCase
+        })
 
         App.mount('#app') 
     </script>
