@@ -1,0 +1,14 @@
+let n = 5
+let n = new Number()
+
+let str = 'ABC'
+let str = new String()
+
+let ans = true
+let ans = new Boolean()
+
+let arr = [2,4,6,'ABC',true,new Date()]
+let arr = new Array()
+----------------------------------------
+let today = '2023/8/23'     // 字串
+let today = new Date('2023/8/23')     // 日期時間

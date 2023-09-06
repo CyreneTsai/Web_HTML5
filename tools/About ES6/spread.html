@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 new featurea -- spread operator(three dots)</title>
+</head>
+<body>
+    <script>
+        function add(x, y, z){
+            console.log(x + y + z)
+        }
+
+        let nums = [5, 6, 7]
+
+        add(nums[0], nums[1], nums[2])
+        add(...nums)
+
+        let meats = ['bacon','ham']
+        // 1
+        // let food = ['rice','apple','tomato']
+        // console.log(food);
+
+        // 2
+        let food = ['rice',...meats,'apple','tomato']
+        console.log(food);
+    </script>
+</body>
+</html>

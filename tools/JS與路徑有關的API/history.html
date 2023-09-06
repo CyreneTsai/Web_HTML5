@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: history 物件</title>
+</head>
+<body>
+    <!-- history 物件：將目前頁面儲存在歷史紀錄中 -->
+    <!-- 使用 AJAX 去存取資料，可以在不切換網頁的狀況下變更網頁內容，並可以在之後回復成此時的狀態  -->
+    
+    Please <a href="https://www.google.com" id="backLink">go back</a> the previous window.
+
+    <script>
+        document.getElementById('backLink').onclick = function(){
+            // history.back();      // history.go(-1);
+            // history.forword();   // history.go(1);
+        };
+
+        history 的方法:
+        - pushState(儲存的物件, '頁面的標題', '新頁面的網址')  新增瀏覽器的瀏覽紀錄
+          儲存的物件: 若要回復狀態所需的資訊。(像是 AJAX 就可以指定發出請求時候的 key 值)
+          新頁面的網址(第三個參數): 只能是在同個網域下才能操作
+          
+          
+          let data = {
+              pageName: 'temp',
+              page: 5,
+          };
+          history.pushState(data, 'The Temp', '/temp/');
+          
+    </script>
+</body>
+</html>

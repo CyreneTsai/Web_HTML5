@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue@3"></script>  
+    <script src="https://unpkg.com/vuex@4"></script>  
+</head>
+<body> 
+    <div id="app"> <!-- HTML DOM template -->
+        <h1>count: {{count}}</h1>
+        <button @click="update"> Add </button>
+    </div>
+    
+    <script> 
+        const { computed } = Vue   
+        const { createStore } = Vuex
+
+        const store = createStore({
+            state(){        // 類似 data(){}
+                return {
+                    count: 0,
+                    score: 100,
+                    loading: true,
+                }
+            },
+            mutations: {    // 類似 methods: {}
+                addCount(state){
+                    state.count++
+                },
+            },
+        })
+
+        const App = {
+            setup(){
+                // const count = computed(() => {
+                //     return store.state.count
+                // }) 
+                const count = computed(() => store.state.count)
+                const update = () => store.commit('addCount')
+
+                return {
+                    count,
+                    update,
+                }
+            },
+        }  
+
+        Vue.createApp(App).mount('#app') 
+    </script>
+</body>
+</html>

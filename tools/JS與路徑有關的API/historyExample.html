@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            let state = 1;
+            $('#addButton').click(function(){
+                history.pushState(`state ${state}`, `STATE ${state}`);
+                state += 1;
+            });
+
+            // 請按「前一頁」
+            $(window).on('popstate',function(e){
+                console.log(e.originalEvent.state);
+                // originalEvent: 事件物件的屬性，主要的用途在取得原本的事件物件
+            })
+        });
+    </script>
+</head>
+<body>
+    <button id="addButton"> 新增 history </button>
+</body>
+</html>

@@ -28,8 +28,50 @@
         // }
 
         const Home = {template: `<div><h1> $Home$ </h1></div>`}
-        const About = {template: `<div><h1> @About@ </h1></div>`}
-        const Products = {template: `<div><h1> &Products& </h1></div>`}
+
+        // About page
+        // const About = {template: `<div><h1> This is an about page </h1></div>`}
+        const About = {
+            template: `
+                <div>
+                    <h1> This is an about page </h1>
+                    <hr>
+                    <p>
+                        <router-link to="/about/us">About Us</router-link> | 
+                        <router-link to="/about/others">About Others</router-link>
+                    </p>
+                    <router-view/>
+                </div>
+            `,
+        }
+        const AboutUs = {template: `<h3> about us </h3>`}
+        const AboutOthers = {template: `<h3> about others </h3>`}
+
+        // Products page
+        const items = {
+            10: 'iPad',
+            20: 'iPhone',
+            30: 'Mac Pro',
+            40: 'HomePad mini',
+            50: 'AirPods',
+        }
+        const Products = {
+            template: `
+                <div>
+                    <h1> This is a products page </h1>
+                    <!-- <p>{{$route.params.item}}</p> -->
+
+                    <!-- 要用 computed 處理 -->
+                    <p>{{item}}</p>
+                </div>
+            `,
+            computed: {
+                item(){
+                    // return items[this.$route.params.item]    // http://localhost:8080/products/20
+                    return items[this.$route.query.item]        // http://localhost:8080/products?item=20
+                },
+            },
+        }
 
         const router = VueRouter.createRouter({
             history: VueRouter.createWebHashHistory(),  // 路徑有包含 #
@@ -37,8 +79,24 @@
             // routes: [{},{},....],   // 在哪個路徑下，render 哪個組件
             routes: [
                 {path: '/', component: Home},
-                {path: '/about', component: About},
-                {path: '/products', component: Products}
+
+                // {path: '/about', component: About},
+                {
+                    path: '/about', 
+                    component: About,
+                    children: [
+                        {path: 'us', component: AboutUs},
+                        {path: 'others', component: AboutOthers},
+                    ],
+                },
+
+                // {path: '/products', component: Products}
+                {
+                    // path: '/products', 
+                    // path: '/products/:item',    // item 是是自訂名稱(sn, item, id, ...) 
+                    path: '/products/:item?',      // 加「?」代表後面的路徑可有可無
+                    component: Products,
+                }
             ], 
         })
 

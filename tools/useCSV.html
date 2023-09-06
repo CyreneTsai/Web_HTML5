@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">    
+    <title>CSV to table using AJAX(jQuery)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <h1 align="center">CSV to table using AJAX(jQuery)</h1>
+    <div align="center">
+        <button id="loadButton" class="btn btn-info">Load Data</button>
+    </div>
+    <div id="result" align="center"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('#loadButton').click(function(){
+                $.ajax({
+                    // url: './classmate.csv',
+                    url: './employee.csv',
+                    dataType: 'text',
+                    success(res){
+                        // console.log(res);
+                        let resData = res.split(/\n|\r\n/)  // match on \n or \r\n
+
+                        let tableData = `<table class="table table-bordered table-striped">`
+                            for(let i = 0; i < resData.length; i++){
+                                let cellData = resData[i].split(',')
+                                tableData += `<tr>`
+                                    for(let j = 0; j < cellData.length; j++){
+                                        if(i == 0){
+                                            tableData += `<th>${cellData[j]}</th>`
+                                        }else{
+                                            tableData += `<td>${cellData[j]}</td>`
+                                        }
+                                    }
+                                tableData += `</tr>`
+                            }
+                        tableData += `</table>`
+
+                        $('#result').append(tableData)
+                    },
+                })
+            })
+        })
+    </script>
+</body>
+</html>

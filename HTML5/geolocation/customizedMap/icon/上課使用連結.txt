@@ -1,0 +1,57 @@
+免費 + 付費圖庫
+https://www.freepik.com/
+https://pixabay.com/
+https://unsplash.com/
+https://www.pexels.com/zh-tw/
+
+https://www.stickpng.com/
+https://www.freeiconspng.com/
+https://www.svgrepo.com/
+https://icons8.com/icons
+https://www.iconfinder.com/
+https://www.flaticon.com/
+
+顏色選擇
+kuler
+https://color.adobe.com/zh/explore
+
+coolors
+https://coolors.co/
+---------------------------------------
+
+JSON
+Validator
+https://jsonformatter.curiousconcept.com/
+Viewer
+https://jsoneditoronline.org/
+
+---------------------------------------
+專題可能會用到的
+email.js
+https://www.emailjs.com/
+
+summernote
+https://summernote.org/
+
+html2canvas
+https://html2canvas.hertzen.com/
+
+payment request api
+https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API
+https://blog.techbridge.cc/2017/10/14/payment-request-api/
+
+產生信用卡卡號
+http://www.getcreditcardnumbers.com/ 
+
+綠界科技
+https://www.ecpay.com.tw/Service/API_Dwnld
+C#(.net)
+https://github.com/ECPay/ECpayAIO_Net
+
+google 關鍵字 「let's encrypt」
+
+leaflet
+https://leafletjs.com/
+
+vue3 + leaflet
+https://github.com/vue-leaflet/vue-leaflet

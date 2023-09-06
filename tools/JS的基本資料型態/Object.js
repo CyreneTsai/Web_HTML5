@@ -36,7 +36,7 @@ Object 自訂物件
 3 一定要用物件的陣列表示法
     const products = {
         10: 'iPad',
-        20: 'iPone',
+        20: 'iPhone',
         30: 'Mac Pro',
         40: 'HomePad mini',
         50: 'AirPods',

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <style>
+        img{
+            width: 250px;
+        }
+        h1{
+            font-size: 18px;
+        }
+        .book{
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 250px;
+            height: 400px;
+            margin: 10px;
+            padding: 10px;
+
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@3"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.js"></script> 
+</head>
+<body> 
+    <div id="app"> <!-- HTML DOM template -->
+        <button @click="setter">將 JSON 存到 localStorage</button>
+        <button @click="getter">將 JSON 從 localStorage 取出來使用</button>
+        <button @click="clearAll">清除 localStorage</button>
+        <hr>
+        <div v-for="book in books" class="book">
+            <a :href="book.url">
+                <img :src="book.image" alt="">
+            </a>
+            <h1>{{checkTitle(book.title)}}</h1>
+            <p>{{book.author}}</p>
+        </div>
+    </div>
+    <script>
+        const App = Vue.createApp({
+            data(){ 
+                return {
+                    books: [],
+                    tempBooks: [],
+                }   
+            },
+            methods: {
+                checkTitle(theTitle){
+                    return theTitle.substring(0,25)
+                },
+                setter(){
+                    // localStorage.setItem('BOOKS',this.tempBooks)
+                    localStorage.setItem('BOOKS',JSON.stringify(this.tempBooks))
+                },
+                getter(){
+                    let result = localStorage.getItem('BOOKS')
+                    // console.log(result);    // JSON 格式
+
+                    this.books = JSON.parse(result) // 將 JSON 轉換成 「JavaScript 物件」
+                },
+                clearAll(){
+                    localStorage.clear()
+                },
+            },
+            mounted() {
+            // jQuery
+                // $.getJSON('./bookData.json', res => {})
+                // $.getJSON('./bookData.json').then(function(res){})      // XX
+                $.getJSON('./bookData.json').then(res => {
+                    // console.log(res)
+                    // this.books = res
+                    this.tempBooks = res
+                })
+
+                // Axios
+                // axios.get('./bookData.json').then(res => {
+                //     // console.log(res)
+                //     // console.log(res.data)
+                //     this.books = res.data
+                // })
+
+                // Fetch API
+                // fetch('./bookData.json').then(res => {
+                //     // console.log(res)
+                //     console.log(res.json())
+                // })
+
+                // fetch('./bookData.json').then(res => res.json()).then(response => {
+                //     // console.log(response)
+                //     this.books = response
+                // })
+            },
+        })
+        App.mount('#app') 
+    </script>
+</body>
+</html>

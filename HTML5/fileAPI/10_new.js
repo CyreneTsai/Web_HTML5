@@ -4,24 +4,18 @@ function doFirst(){
 }
 function fileChange(){ 
     let file = document.getElementById('theFile').files[0]
-    // console.log(file);
-    let message = ``
-
-    message += `File name: ${file.name}\n`
-    message += `File type: ${file.type}\n`
-    message += `File size: ${file.size} byte\n`
-    message += `Last modufied: ${file.lastModifiedDate} byte\n`
-
-    document.getElementById('fileInfo').value = message
-    // ============= 以下為新增的程式碼 ==============
 
     let readFile = new FileReader()
     readFile.readAsDataURL(file)
     readFile.addEventListener('load', function(){
-        let myMovie = document.getElementById('myMovie')
-        myMovie.src = readFile.result
-        myMovie.width = 535
-        myMovie.controls = true
+        let image = new Image()
+        image.src = readFile.result
+        image.style.width = '100%'
+        image.style.height = '100%'
+
+        let skin = document.getElementById('skin')
+        skin.innerHTML = ''
+        skin.appendChild(image)
     })
 }
 window.addEventListener('load',doFirst)

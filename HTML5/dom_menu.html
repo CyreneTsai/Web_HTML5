@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+    <style>
+        .menu{
+            list-style: none;
+            padding-inline-start: 20px;
+            font-family: Calibri;
+        }
+        .bold{
+            font: bold 20px Calibri;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            // $(`.menu li:nth-child(1)`).append(` (First)`)
+            // $(`.menu li:eq(0)`).append(` (First)`)
+            // $(`.menu li:first`).append(` (First)`)
+            // $(`.menu`).find(`li`).first().append(` (First)`)
+            // $(`.menu`).find(`li`).first().next().append(` (Second)`)
+
+            // $(`.menu`).find(`li`).first().addClass('bold')
+            // $(`.menu`).find(`li`).first().addClass('bold').nextAll().hide()
+            // $(`.menu`).find(`li`).first().addClass('bold').click(function(){}).nextAll().hide()
+            $(`.menu`).find(`li`).first().addClass('bold').click(function(){
+                // $(this).nextAll().show()
+                $(this).nextAll().toggle()
+            }).nextAll().hide()
+        })
+
+        // addClass()
+        // removeClass()
+        // toggleClass()
+
+        // slideDown()
+        // slideUp()
+        // slideToggle()
+    </script>
+</head>
+<body>
+    <ul class="menu">
+        <li>User</li>
+        <li>Settings</li>
+        <li>Log out</li>
+        <li>Delete account</li>
+        <li>Something else</li>
+        <li>Do nothing</li>
+    </ul>
+    
+</body>
+</html>

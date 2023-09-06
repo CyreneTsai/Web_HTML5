@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue@3"></script>  
+    <script src="https://unpkg.com/vuex@4"></script>  
+</head>
+<body> 
+    <div id="app"> <!-- HTML DOM template -->
+        <!-- <ol>
+            <li v-for="teddy in teddyInfo" v-if="teddy.price>=7000">
+                {{teddy.title}}: {{teddy.price}}
+            </li>
+        </ol> -->
+
+        <!-- 處理 v-if 和 v-for 的衝突:
+             用 computed 回傳篩選之後的結果，再 render
+        -->
+        <ol>
+            <li v-for="teddy in filterData">
+                <img :src="teddy.url" width="30"> {{teddy.title}}: {{teddy.price}}
+            </li>
+        </ol>
+    </div>
+    
+    <script> 
+        Vue.createApp({
+            data(){
+                return {
+                    teddyInfo: [
+                        {id: 'A1001',title: 'Formosa',url: '../../images/imgs/formosa.jpg',price: 5000,},
+                        {id: 'A1002',title: 'Teddy Brown',url: '../../images/imgs/brown.jpg',price: 7000,},
+                        {id: 'A1003',title: 'Teddy Cinnamon',url: '../../images/imgs/cinnamon.jpg',price: 6800,},
+                        {id: 'A1004',title: 'Innocent Bear',url: '../../images/imgs/innocent.jpg',price: 7200,},
+                        {id: 'A1005',title: 'Lion Bear',url: '../../images/imgs/lion.jpg',price: 8000,},
+                        {id: 'A1006',title: 'Teddy Milk',url: '../../images/imgs/milk.jpg',price: 6000,},
+                        {id: 'A1007',title: 'Panda',url: '../../images/imgs/panda.jpg',price: 6800,},
+                        {id: 'A1008',title: 'Peter Rabbit',url: '../../images/imgs/peterRabbit.jpg',price: 5500,},
+                    ],
+                }
+            },
+            computed: {
+                filterData(){
+                    return this.teddyInfo.filter(item => item.price < 7000)
+                },
+            },
+        }).mount('#app') 
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: location 物件</title>
+</head>
+<body>
+    location 物件: 在頁面中移動（控制頁面的切換）
+    <script>
+        http://127.0.0.1:5500/JavaScript/location.html?name=Peter#result
+        location 的屬性
+        - protocol ---> http: 
+        - host ---> 127.0.0.1:5500 
+        - hostname ---> 127.0.0.1
+        - port ---> 5500 
+        - pathname ---> /JavaScript/location.html/iPhone
+        - search ---> ?name=Peter
+        - hash ---> #result
+        
+        // window.location = 'https://www.google.com';
+
+        // 將網頁導向指定的頁面
+        // window.location.href = 'https://www.google.com';
+            document.referrer 可以查到上一頁的網址(來源網址)
+
+        // 在頁面中移動，不留下任何歷史紀錄
+        // window.location.replace('https://www.google.com');
+    1.
+        // ex: http://127.0.0.1:5500/JavaScript/location.html?name=Peter&age=40
+        location.search ---> 尋找『?』以後的資料(包含 ?)
+                        ---> ?name=Peter&age=40
+        location.search.slice(1) ---> name=Peter&age=40
+        location.search.slice(1).split('&') --->  ['name=Peter', 'age=40']
+
+        location.search.slice(1).split('&')[0] ---> name=Peter
+        location.search.slice(1).split('&')[0].split('=') ---> ['name', 'Peter']
+        location.search.slice(1).split('&')[0].split('=')[1] ---> Peter
+
+        location.search.slice(1).split('&')[1] ---> age=40
+        location.search.slice(1).split('&')[1].split('=') ---> ['age', 40]
+        location.search.slice(1).split('&')[1].split('=')[1] ---> 40
+
+    2.
+        // location.hash 尋找網頁的某個區域
+        // ex: http://127.0.0.1:5500/JavaScript/location.html#1
+        // ex: http://127.0.0.1:5500/JavaScript/location.html#2
+        // ex: http://127.0.0.1:5500/JavaScript/location.html#3
+
+        location.hash ---> 尋找『＃』以後的資料(包含 ＃)
+                      ---> #3
+        location.hash.charAt(1) ---> 3  // 找第二個字元
+        location.hash.slice(1) ---> 3  // 找『＃』以後的所有字元
+        // ex.
+        let content = location.hash.charAt(1);
+        switch (content) {
+            case 1:
+                
+                break;
+            case 2:
+                
+                break;
+            case 3:
+                
+                break;
+            default:
+                break;
+        }
+    
+        .html
+        1. <a name="some">XXX</a>  --->index.html#some
+        2. <h2 id="some">OOO</h2>
+
+    3. 
+        ex: http://127.0.0.1:5500/JavaScript/location.html/iPhone
+        ex: http://127.0.0.1:5500/JavaScript/location.html/MacPro
+        ex: http://127.0.0.1:5500/JavaScript/location.html/iPad
+
+        location.href ---> http://127.0.0.1:5500/JavaScript/location.html/iPhone
+        location.href.lastIndexOf('/') ---> 46
+        location.href.slice(46) ---> /iPhone
+        location.href.slice(46+1) ---> iPhone
+    </script>
+</body>
+</html>
+
+<!-- 
+    B(browser|window)OM
+    - 屬性: navigator
+            history
+            location
+            document
+    - 方法: 
+
+    D(document)OM 
+-->
