@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Vue</title>
     <style>
-        img{
+        img {
             width: 250px;
         }
-        h1{
+
+        h1 {
             font-size: 18px;
         }
-        .book{
+
+        .book {
             border: 1px solid #ccc;
             border-radius: 10px;
             width: 250px;
@@ -23,11 +26,12 @@
             overflow: hidden;
         }
     </style>
-    <script src="../js/vue.global.js"></script>  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.js"></script> 
+    <script src="../js/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.js"></script>
 </head>
-<body> 
+
+<body>
     <div id="app"> <!-- HTML DOM template -->
         <div v-for="book in books" class="book">
             <a :href="book.url">
@@ -53,18 +57,18 @@
     -->
     <script>
         const App = Vue.createApp({
-            data(){ 
+            data() {
                 return {
                     books: [],
-                }   
+                }
             },
             methods: {
-                checkTitle(theTitle){
-                    return theTitle.substring(0,25)
+                checkTitle(theTitle) {
+                    return theTitle.substring(0, 25)
                 },
             },
             mounted() {
-            // jQuery
+                // jQuery
                 // $.getJSON('./bookData.json', res => {})
                 // $.getJSON('./bookData.json').then(function(res){})      // XX
                 // $.getJSON('./bookData.json').then(res => {
@@ -94,4 +98,5 @@
         App.mount('#app') 
     </script>
 </body>
+
 </html>
